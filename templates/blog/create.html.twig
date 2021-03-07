@@ -1,26 +1,33 @@
- {% extends "base.html.twig" %}
+{% extends "base.html.twig" %}
 
- {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
- {% block body %}
+{% block body %}
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel-login">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+							{{ form_start(form) }}
 
-    <h1>Creation d'un article </h1>
+							{{ form_row(form.title, {'attr' : { 'placeholder' : "Titre de l\'articel"} })    }}
+							{{ form_row(form.category)   }}
+							{{ form_row(form.content, {'attr' : { 'placeholder' : "Contenu de l\'articel"} })    }}
+							{{ form_row(form.image, {'attr' : { 'placeholder' : "Image de l\'articel"} })    }}
 
-    {{ form_start(form) }}
+							<button type="submit" class="btn btn-danger">
 
-    {{ form_row(form.title, {'attr' : { 'placeholder' : "Titre de l\'articel"} })    }}
-    {{ form_row(form.category)   }}
-     {{ form_row(form.content, {'attr' : { 'placeholder' : "Contenu de l\'articel"} })    }}
-      {{ form_row(form.image, {'attr' : { 'placeholder' : "Image de l\'articel"} })    }}
-    
-    <button type="submit" class="btn btn-danger">
-    
-    {% if editMode %}
-        Enregister
-    {% else %}
-        Créer L'article
-    {% endif %}
-    </button>
-    {{ form_end(form) }}
-
- {% endblock %}
+								{% if editMode %}
+									Enregister
+								{% else %}
+									Créer L'article
+								{% endif %}
+							</button>
+							{{ form_end(form) }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></div></div></div>{% endblock %}
